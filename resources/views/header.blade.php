@@ -2,7 +2,7 @@
       <header>
         <div class="image-text">
           <span class="image">
-            <img src="image/moneymaven2.png" alt="" />
+            <img src="image/paychecklogo.png" alt="" />
           </span>
 
           <div class="text logo-text">
@@ -18,7 +18,7 @@
         <div class="menu">
           <ul class="menu-links">
             <li class="nav-link">
-              <a href="dashboard.php">
+              <a href="{{ route('dashboard') }}">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="text nav-text">Dashboard</span>
               </a>
@@ -37,22 +37,30 @@
                 </a>
               </li>
 
-            <li class="nav-link">
-              <a href="insights.php">
-                <i class="bx bx-pie-chart-alt icon"></i>
-                <span class="text nav-text">Tracking</span>
-              </a>
-            </li>
-          </ul>
+              <li class="nav-link">
+                <a href="{{ route('tracking') }}">
+                  <i class="bx bx-pie-chart-alt icon"></i>
+                  <span class="text nav-text">Tracking</span>
+                </a>
+              </li>
+              
         </div>
 
         <div class="bottom-content">
-          <li class="">
-            <a href="function/logout.php">
-              <i class="bx bx-log-out icon"></i>
-              <span class="text nav-text">Logout</span>
+          
+          <li class="nav-link">
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="bx bx-log-out icon"></i>
+                <span class="text nav-text">{{ __('Log Out') }}</span>
             </a>
-          </li>
+            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                @csrf
+            </form>
+        </li>
+        
+        
+        
+        
 		  <li class="">
 			<a href="settings.php">
 				<i class='bx bx-cog icon' ></i>
