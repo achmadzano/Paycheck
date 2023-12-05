@@ -79,13 +79,18 @@
               </thead>
               <tbody>
                 @foreach ($employee as $ep)
-                <tr>
-                  <td>{{$ep -> name}}</td>
-                  <td>{{$ep -> job_title}}</td>
-                  {{-- <td>30</td> --}}
-                  <td>{{$ep -> status}}</td>
-                </tr>
-                @endforeach
+                @if ($loop->iteration <= 5)
+                    <tr>
+                        <td>{{$ep->name}}</td>
+                        <td>{{$ep->job_title}}</td>
+                        {{-- <td>30</td> --}}
+                        <td>{{$ep->status}}</td>
+                    </tr>
+                @else
+                    @break
+                @endif
+            @endforeach
+            
               </tbody>
             </table>
           </div>

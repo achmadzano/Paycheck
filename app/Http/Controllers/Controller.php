@@ -61,23 +61,29 @@ class Controller extends BaseController
         $employee = Employee::leftJoin('attendance_records', 'employees.id', '=', 'attendance_records.employee_id')
         ->select('employees.*', 
             \DB::raw('TIME_FORMAT(attendance_records.check_in_time, "%H:%i:%s") as check_in_time'), 
-            \DB::raw('TIME_FORMAT(attendance_records.check_out_time, "%H:%i:%s") as check_out_time'))
+            \DB::raw('TIME_FORMAT(attendance_records.check_out_time, "%H:%i:%s") as check_out_time'),
+            \DB::raw('attendance_records.status as status'))
         ->whereNotNull('attendance_records.check_in_time') // Employees who have check-in times
         ->orWhereNull('attendance_records.check_in_time') // Employees who do not have check-in times
         ->get();
+
+
+
     
         $employeeAttendCount = attendance_record::whereNotNull('check_in_time')->count();
         $totalEmployeeCount = Employee::count();
         $employeeNotAttendCount = $totalEmployeeCount - $employeeAttendCount;
-        $employeeLateCount = attendance_record::whereNotNull('check_in_time')->where('check_in_time', '>', '09:00:00')->count();
+        $employeeLateCount = attendance_record::whereNotNull('check_in_time')->where('status', '=', 'Late')->count();
+
         
         return view('tracking_content', [
             'employee' => $employee,
             'employeeAttendCount' => $employeeAttendCount,
+            'employeeLateCount' => $employeeLateCount,
             'totalEmployeeCount' => $totalEmployeeCount,
             'employeeNotAttendCount' => $employeeNotAttendCount,
-            'employeeLateCount' => $employeeLateCount,
         ]);
+        
         
     
     }

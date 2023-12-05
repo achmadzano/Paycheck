@@ -28,7 +28,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -37,7 +38,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -46,7 +48,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -55,7 +58,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -64,7 +68,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -73,7 +78,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -82,7 +88,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -91,7 +98,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -100,7 +108,8 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
+
             ],
             [
                 'name' => fake()->name(),
@@ -109,7 +118,7 @@ class EmployeeSeeder extends Seeder
                 'address' => fake() -> address(),
                 'hire_date' => fake() -> date(),
                 'salary' => fake() -> numberBetween(1000, 10000),
-                'job_title' => fake() -> jobTitle(),
+                'job_title' => fake() -> randomElement(['Finance', 'Marketing', 'IT', 'Accounting','HRD','Legal','Procurement','GA','PPIC', 'Production', 'QA','Creative']),
             ],
             ];
             DB::table('employees')->insert($employee);
