@@ -31,7 +31,7 @@
               </a>
             </li>
             <li class="nav-link">
-                <a href="transaction.php">
+                <a href="{{route('employee.index')}}">
                   <i class="bx bx-bar-chart-alt-2 icon"></i>
                   <span class="text nav-text">Management</span>
                 </a>

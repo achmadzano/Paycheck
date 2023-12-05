@@ -20,6 +20,8 @@ return new class extends Migration
             $table->dateTime('check_in_time')->nullable();
             // check out time
             $table->dateTime('check_out_time')->nullable();
+            // check in status
+            $table->string('status')->nullable();
             
             $table->timestamps();
         });

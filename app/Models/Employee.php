@@ -12,4 +12,13 @@ class Employee extends Model
     {
         return $this->hasOne(employee_detail::class);
     }
+    protected $fillable = [
+        'name',
+        'email',
+        'phone',
+        'address',
+        'hire_date',
+        'salary',
+        'job_title',
+    ];
 }

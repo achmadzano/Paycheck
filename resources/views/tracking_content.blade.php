@@ -86,7 +86,7 @@
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                         Late
                       </div>
-                      <div class="h5 font-weight-bold text-gray-800">756</div>
+                      <div class="h5 font-weight-bold text-gray-800">{{$employeeLateCount}}</div>
                       <i class="fas fa-dollar-sign fa-2x text-gray-300">Employee</i>
                     </div>
                   </div>
