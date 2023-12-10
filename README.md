@@ -35,10 +35,6 @@ Welcome to a new era of HR mastery! Dive into unparalleled employee management w
 
 Laravel, Bootstrap, and Love :3
 
-* []()
-* []()
-* []()
-
 ## Getting Started
 
 Welcome to the exciting journey of getting started with Paycheck! Follow these simple steps to set the stage for a successful development experience:
