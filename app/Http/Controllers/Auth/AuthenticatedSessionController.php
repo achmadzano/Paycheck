@@ -31,9 +31,6 @@ class AuthenticatedSessionController extends Controller
         } else if(Auth::user() && Auth::user()->role == 'user'){
             return redirect()->route('dashboard_employee');
         }
-        else{
-            return redirect()->route('login');
-        }
     }
 
     /**

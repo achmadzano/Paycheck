@@ -21,7 +21,9 @@ class RoleCheck
                 return $next($request);
             }
         }
-        Auth::logout();
-        return redirect()->route('login')->with('status','You are not authorized to access this page.');
+        // dont log out just alert
+        abort(403, 'Unauthorized action.');
+        // Auth::logout();
+        // return redirect()->route('login')->with('status','You are not authorized to access this page.');
     }
 }
