@@ -29,7 +29,7 @@
 
 ## About The Project
 
-"Welcome to a new era of HR mastery! Dive into unparalleled employee management with our groundbreaking platform. Crafted with precision and innovation, our project description guide is your gateway to seamless HR experiences. Elevate your workplace dynamics, empower your team, and embark on a journey of unparalleled success. It's time to redefine HR excellence — your path starts here!"
+Welcome to a new era of HR mastery! Dive into unparalleled employee management with our groundbreaking platform. Crafted with precision and innovation, our project description guide is your gateway to seamless HR experiences. Elevate your workplace dynamics, empower your team, and embark on a journey of unparalleled success. It's time to redefine HR excellence — your path starts here!
 
 ## Built With
 
