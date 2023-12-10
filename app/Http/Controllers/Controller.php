@@ -35,6 +35,12 @@ class Controller extends BaseController
 
 
     }
+
+    // //route for !dashboard_page_employee.blade.php
+    // Route::get('/dashboard_employee', function () {
+    //     return view('dashboard_page_employee');
+    // });
+
     // show employee and join table with attendance record
     // public function showEmployeeAttendance()
     // {
@@ -115,5 +121,7 @@ class Controller extends BaseController
     
     //make controller for showing this in employee management
     // name: "Jacob", department: "IT", age: "29", gross_salary: "$1900", net: "$1800", status: "Intern" 
+
+    
 
 }

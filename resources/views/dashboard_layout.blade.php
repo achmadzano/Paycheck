@@ -32,6 +32,7 @@
     @include('header')
     @yield('tracking_content')
     @yield('dashboard_content')
+    @yield('dashboard_content_employee')
     @yield('login')
     @yield('employee_management')
     @yield('create')

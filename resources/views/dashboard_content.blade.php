@@ -1,5 +1,5 @@
-@extends('dashboard_layout')
-@section('dashboard_content')
+@extends('dashboard_layout_emp')
+@section('dashboard_content_employee')
     <section class="home">
       <div class="text">Dashboard</div>
       <div class="row ml-20">
