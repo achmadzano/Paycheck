@@ -20,10 +20,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function showEmployee(){
-
-        
         $employee = Employee::all();
-        
         $employeeAttendCount = attendance_record::whereNotNull('check_in_time')->count();
         $totalEmployeeCount = Employee::count();
         $employeeNotAttendCount = $totalEmployeeCount - $employeeAttendCount;
@@ -31,16 +28,7 @@ class Controller extends BaseController
         'employeeAttendCount' => $employeeAttendCount, 
         'totalEmployeeCount' => $totalEmployeeCount,
         'employeeNotAttendCount' => $employeeNotAttendCount]);
-
-
-
     }
-
-    // //route for !dashboard_page_employee.blade.php
-    // Route::get('/dashboard_employee', function () {
-    //     return view('dashboard_page_employee');
-    // });
-
     // show employee and join table with attendance record
     // public function showEmployeeAttendance()
     // {
@@ -67,29 +55,23 @@ class Controller extends BaseController
         $employee = Employee::leftJoin('attendance_records', 'employees.id', '=', 'attendance_records.employee_id')
         ->select('employees.*', 
             \DB::raw('TIME_FORMAT(attendance_records.check_in_time, "%H:%i:%s") as check_in_time'), 
-            \DB::raw('TIME_FORMAT(attendance_records.check_out_time, "%H:%i:%s") as check_out_time'),
-            \DB::raw('attendance_records.status as status'))
+            \DB::raw('TIME_FORMAT(attendance_records.check_out_time, "%H:%i:%s") as check_out_time'))
         ->whereNotNull('attendance_records.check_in_time') // Employees who have check-in times
         ->orWhereNull('attendance_records.check_in_time') // Employees who do not have check-in times
         ->get();
-
-
-
     
         $employeeAttendCount = attendance_record::whereNotNull('check_in_time')->count();
         $totalEmployeeCount = Employee::count();
         $employeeNotAttendCount = $totalEmployeeCount - $employeeAttendCount;
-        $employeeLateCount = attendance_record::whereNotNull('check_in_time')->where('status', '=', 'Late')->count();
-
+        $employeeLateCount = attendance_record::whereNotNull('check_in_time')->where('check_in_time', '>', '09:00:00')->count();
         
         return view('tracking_content', [
             'employee' => $employee,
             'employeeAttendCount' => $employeeAttendCount,
-            'employeeLateCount' => $employeeLateCount,
             'totalEmployeeCount' => $totalEmployeeCount,
             'employeeNotAttendCount' => $employeeNotAttendCount,
+            'employeeLateCount' => $employeeLateCount,
         ]);
-        
         
     
     }
@@ -121,7 +103,5 @@ class Controller extends BaseController
     
     //make controller for showing this in employee management
     // name: "Jacob", department: "IT", age: "29", gross_salary: "$1900", net: "$1800", status: "Intern" 
-
-    
 
 }
