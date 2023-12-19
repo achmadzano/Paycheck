@@ -33,8 +33,6 @@ class EmployeeController extends Controller
         $employeeNotAttendCount = $totalEmployeeCount - $employeeAttendCount;
         $employeeLateCount = attendance_record::whereNotNull('check_in_time')->where('check_in_time', '>', '09:00:00')->count();
         
-        $totalEmployeeCount = Employee::count();
-
         return view('employee_management', [
             'employee' => $employee,
             'employeeAttendCount' => $employeeAttendCount,

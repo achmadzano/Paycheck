@@ -14,7 +14,7 @@
 
     @endif
 </div>
-<form method="post" action="{{route('employee.update', ['employee' => $employee])}}">
+<form method="post" action="{{route('employee.update',['employee'=>$employee])}}">
     @csrf 
     @method('put')
     <div>
@@ -49,7 +49,6 @@
         <button  class="btn btn-dark mb-4 ml-11 ">Edit Employee </button>
     </div>
 </form>
-
 
 </section>
 @endsection
