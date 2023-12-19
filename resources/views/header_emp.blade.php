@@ -7,7 +7,7 @@
 
           <div class="text logo-text">
             <span class="name">Paycheck</span>
-            <span class="profession">HRD</span>
+            <span class="profession">Employee</span>
           </div>
         </div>
 
@@ -18,32 +18,11 @@
         <div class="menu">
           <ul class="menu-links">
             <li class="nav-link">
-              <a href="{{ route('dashboard') }}">
+              <a href="{{ route('dashboard_employee') }}">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="text nav-text">Dashboard</span>
               </a>
             </li>
-
-            <!-- <li class="nav-link">
-              <a href="transaction.php">
-                <i class="bx bxs-report icon"></i>
-                {{-- <i class='bx bxs-report'></i> --}}
-                <span class="text nav-text">Reports</span>
-              </a>
-            </li> -->
-            <li class="nav-link">
-                <a href="{{route('employee.index')}}">
-                  <i class="bx bx-bar-chart-alt-2 icon"></i>
-                  <span class="text nav-text">Management</span>
-                </a>
-              </li>
-
-              <li class="nav-link">
-                <a href="{{ route('tracking') }}">
-                  <i class="bx bx-pie-chart-alt icon"></i>
-                  <span class="text nav-text">Tracking</span>
-                </a>
-              </li>
               
         </div>
 

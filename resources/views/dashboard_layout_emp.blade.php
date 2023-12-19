@@ -29,13 +29,8 @@
     <title>Paycheck</title>
   </head>
   <body>
-    @include('header')
-    @yield('tracking_content')
-    @yield('dashboard_content')
-    @yield('login')
-    @yield('employee_management')
-    @yield('create')
-    @yield('edit')
+    @include('header_emp')
+    @yield('dashboard_content_employee')
     
     <script src="{{asset('assets/js/layout.js')}}"></script>
   </body>

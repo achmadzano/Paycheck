@@ -5,10 +5,12 @@
       <div class="container">
         <div class="row">
           <div class="col-9">
+            <div class="mt-4 ml-11" id="clock">Jakarta, Indonesia / <span id="time"></span></div>
+
             <!-- Your table content here -->
             {{-- <h2 class="mt-4 ml-11">Employee Status</h2> --}}
-            <div class="mt-4 ml-11" id="clock">Jakarta, Indonesia / <span id="time">12:00:00</span></div>
-            <div class="mt-4 ml-11">
+            {{-- <div class="mt-4 ml-11" id="clock">Jakarta, Indonesia / <span id="time">12:00:00</span></div> --}}
+            {{-- <div class="mt-4 ml-11">
               <select id="department-select">
                 <option value="">-- Select Department --</option>
                 <option value="IT">IT</option>
@@ -32,7 +34,7 @@
                 <option value="Late">Late</option>
               </select>
               <button id="filter-button" class="btn btn-outline-primary">Filter</button>
-            </div>
+            </div> --}}
 
             
             {{-- <button type="button" class="btn btn-primary" id="filter-sort-button">Filter / Sort</button> --}}
@@ -86,7 +88,11 @@
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                         Late
                       </div>
+                      {{-- <div class="h5 font-weight-bold text-gray-800">{{$employee->status}}</div> --}}
+                      {{-- late employe count --}}
                       <div class="h5 font-weight-bold text-gray-800">{{$employeeLateCount}}</div>
+
+
                       <i class="fas fa-dollar-sign fa-2x text-gray-300">Employee</i>
                     </div>
                   </div>
@@ -106,110 +112,34 @@
         </div>
       </div>
       <script>
-
-//TABLE
-const employeeData = [
-  { name: "Jacob", department: "IT", startTime: "8:59", endTime: "17:01", status: "Attend" },
-  { name: "Emma", department: "Accounting", startTime: "8:30", endTime: "16:45", status: "Late" },
-  { name: "Lucas", department: "Creative", startTime: "N/A", endTime: "N/A", status: "Not Attend" },
-  { name: "Olivia", department: "Procurement", startTime: "8:45", endTime: "16:30", status: "Late" },
-  { name: "Sophia", department: "IT", startTime: "9:15", endTime: "17:10", status: "Attend" },
-  { name: "John", department: "Legal", startTime: "8:00", endTime: "16:30", status: "Late" },
-  { name: "Lily", department: "Legal", startTime: "8:30", endTime: "17:00", status: "Attend" },
-  { name: "William", department: "Marketing", startTime: "9:15", endTime: "17:15", status: "Attend" },
-  { name: "Ella", department: "Marketing", startTime: "8:45", endTime: "16:45", status: "Late" },
-  { name: "Daniel", department: "Finance", startTime: "8:00", endTime: "16:30", status: "Late" },
-  { name: "Ava", department: "Finance", startTime: "9:00", endTime: "17:00", status: "Attend" },
-  { name: "Oliver", department: "HRD", startTime: "8:30", endTime: "17:00", status: "Attend" },
-  { name: "Harper", department: "HRD", startTime: "8:30", endTime: "16:45", status: "Late" },
-  { name: "Mason", department: "GA", startTime: "8:45", endTime: "16:30", status: "Late" },
-  { name: "Mia", department: "GA", startTime: "9:00", endTime: "17:00", status: "Attend" },
-  { name: "Ethan", department: "Production", startTime: "8:15", endTime: "17:15", status: "Attend" },
-  { name: "Aiden", department: "Production", startTime: "8:30", endTime: "16:30", status: "Late" },
-  { name: "Harper", department: "QA", startTime: "8:45", endTime: "16:45", status: "Late" },
-  { name: "Elizabeth", department: "QA", startTime: "9:00", endTime: "17:00", status: "Attend" },
-  { name: "Benjamin", department: "PPIC", startTime: "8:00", endTime: "16:30", status: "Late" },
-  { name: "Evelyn", department: "PPIC", startTime: "9:15", endTime: "17:15", status: "Attend" },
-];
-
-
-const departmentSelect = document.getElementById("department-select");
-const statusSelect = document.getElementById("status-select");
-const filterButton = document.getElementById("filter-button");
-const employeeTableBody = document.getElementById("employeeTableBody");
-
-function generateTableRows(data) {
-  let tableRows = "";
-
-  for (const employee of data) {
-    let statusClass = "";
-    if (employee.status === "Late") {
-      statusClass = "text-warning";
-    } else if (employee.status !== "Attend") {
-      statusClass = "text-danger";
-    } else if (employee.status === "Attend") {
-      statusClass = "text-success";
-    }
-
-    tableRows += `
-      <tr>
-        <td>${employee.name}</td>
-        <td>${employee.department}</td>
-        <td>${employee.startTime}</td>
-        <td>${employee.endTime}</td>
-        <td class="${statusClass}">${employee.status}</td>
-      </tr>
-    `;
-  }
-
-  employeeTableBody.innerHTML = tableRows;
-}
-
-function filterData() {
-  const selectedDepartment = departmentSelect.value;
-  const selectedStatus = statusSelect.value;
-
-  // Filter by department and status
-  const filteredData = employeeData.filter(employee => {
-    return (!selectedDepartment || employee.department === selectedDepartment) &&
-           (!selectedStatus || employee.status === selectedStatus);
-  });
-
-  generateTableRows(filteredData);
-}
-
-filterButton.addEventListener("click", filterData);
-
-// Generate the table rows when the page loads
-window.addEventListener("load", function() {
-  generateTableRows(employeeData);
-});
-//TABLE
-
-//CLOCK
-
         function updateClock() {
-            const timeElement = document.getElementById("time");
-            const options = {
-            timeZone: "Asia/Jakarta",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            };
-            const dateTime = new Date().toLocaleString("en-US", options);
-            timeElement.textContent = dateTime;
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+    
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+    
+            // Convert hours to 12-hour format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight (0 hours)
+    
+            // Add leading zero if the value is less than 10
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            var timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
+    
+            document.getElementById("time").innerText = timeString;
         }
-
+    
         // Update the clock every second
         setInterval(updateClock, 1000);
-
-        // Initial call to display the time immediately
+    
+        // Initial call to set the clock immediately
         updateClock();
-
-//CLOCK
-
-        
-</script>
+    </script>
 
 
       
