@@ -77,6 +77,3 @@ Launch the Laravel development server with the following command:
 ```
 php artisan serve
 ```
-## Authors
-
-* **Achmad Fauzan** - ** - [Achmad Fauzan](https://github.com/achmadzano) - *Full Stack*
